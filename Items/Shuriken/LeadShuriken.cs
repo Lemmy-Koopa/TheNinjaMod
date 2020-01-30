@@ -1,4 +1,4 @@
-﻿using TheNinjaMod.Projectiles;
+﻿using TheNinjaMod.Projectiles.Shuriken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,7 +16,7 @@ namespace TheNinjaMod.Items.Shuriken
 		public override void SetDefaults()
 		{
 			item.shootSpeed = 10f;
-			item.damage = 7;
+			item.damage = 5;
 			item.knockBack = 7f;
 			item.useStyle = 1;
 			item.useAnimation = 18;
@@ -38,7 +38,7 @@ namespace TheNinjaMod.Items.Shuriken
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.IronBar, 1);
+			recipe.AddIngredient(ItemID.LeadBar, 1);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 5);
 			recipe.AddRecipe();

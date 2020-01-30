@@ -1,5 +1,5 @@
 ﻿
-using TheNinjaMod.Projectiles;
+using TheNinjaMod.Projectiles.Shuriken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +17,7 @@ namespace TheNinjaMod.Items.Shuriken
 		public override void SetDefaults()
 		{
 			item.shootSpeed = 10f;
-			item.damage = 6;
+			item.damage = 4;
 			item.knockBack = 6f;
 			item.useStyle = 1;
 			item.useAnimation = 19;
