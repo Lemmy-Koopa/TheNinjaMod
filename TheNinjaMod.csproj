@@ -9,9 +9,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Items\Kunai\" />
+    <Folder Include="Items\BlowPipe\" />
     <Folder Include="Items\Nunchaku\" />
     <Folder Include="Items\Sai\" />
-    <Folder Include="Items\Swords\" />
   </ItemGroup>
   <Target Name="BuildMod" AfterTargets="Build">
     <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define $(DefineConstants) -unsafe $(AllowUnsafeBlocks)" />

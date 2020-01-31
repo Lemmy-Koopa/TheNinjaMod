@@ -15,7 +15,7 @@ namespace TheNinjaMod.Items.Shuriken
 		}
 		public override void SetDefaults()
 		{
-			item.shootSpeed = 12f;
+			item.shootSpeed = 14f;
 			item.damage = 10;
 			item.knockBack = 7f;
 			item.useStyle = 1;
@@ -24,7 +24,7 @@ namespace TheNinjaMod.Items.Shuriken
 			item.width = 32;
 			item.height = 32;
 			item.maxStack = 999;
-			item.crit = 19;
+			item.crit = 24;
 			item.rare = 5;
 			item.consumable = true;
 			item.noUseGraphic = true;
@@ -38,9 +38,9 @@ namespace TheNinjaMod.Items.Shuriken
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.TungstenBar, 1);
+			recipe.AddIngredient(ItemID.GoldBar, 1);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this, 15);
+			recipe.SetResult(this, 20);
 			recipe.AddRecipe();
 		}
 
