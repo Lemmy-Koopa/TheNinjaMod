@@ -17,13 +17,13 @@ namespace TheNinjaMod.Items.Shuriken
 		public override void SetDefaults()
 		{			
 			item.shootSpeed = 10f;
-			item.damage = 3;
+			item.damage = 5;
 			item.knockBack = 6f;
 			item.useStyle = 1;
 			item.useAnimation = 19;
 			item.useTime = 19;
-			item.width = 32;
-			item.height = 32;
+			item.width = 30;
+			item.height = 30;
 			item.maxStack = 999;
 			item.rare = 5;
 			item.crit = 16;

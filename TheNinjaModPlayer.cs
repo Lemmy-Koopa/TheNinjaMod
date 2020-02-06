@@ -36,8 +36,29 @@ namespace TheNinjaMod
         public override void ResetEffects()
         {
             AssassinDamage = 1f;
+            ResetVariables();
         }
 
-        
+        public override void Initialize()
+        {
+            AssassinResourceMax = DefaultAssassinMax;
+        }        
+
+        public override void UpdateDead()
+        {
+            ResetVariables();
+        }
+
+        private void ResetVariables()
+        {
+            AssassinDamageAdd = 0f;
+            AssassinDamageMult = 1f;
+            AssassinKnockback = 0f;
+            AssassinCrit = 0;
+            AssassinResourceRegenRate = 1f;
+            AssassinResourceMax2 = AssassinResourceMax;
+        }
+
+
     }
 }

@@ -8,8 +8,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Buff\" />
     <Folder Include="Items\Kunai\" />
-    <Folder Include="Items\BlowPipe\" />
+    <Folder Include="Items\BlowGun\" />
     <Folder Include="Items\Nunchaku\" />
     <Folder Include="Items\Sai\" />
   </ItemGroup>

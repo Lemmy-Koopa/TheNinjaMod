@@ -1,5 +1,4 @@
-﻿
-using TheNinjaMod.Projectiles.Shuriken;
+﻿using TheNinjaMod.Projectiles.Shuriken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +6,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace TheNinjaMod.Items.Shuriken
 {
-	public class IronShuriken : NinjaClassItem
+	public class SlimyShuriken : NinjaClassItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -17,7 +16,7 @@ namespace TheNinjaMod.Items.Shuriken
 		public override void SetDefaults()
 		{
 			item.shootSpeed = 11f;
-			item.damage = 6;
+			item.damage = 13;
 			item.knockBack = 6f;
 			item.useStyle = 1;
 			item.useAnimation = 19;
@@ -30,20 +29,13 @@ namespace TheNinjaMod.Items.Shuriken
 			item.consumable = true;
 			item.noUseGraphic = true;
 			item.noMelee = true;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.thrown = true;
 			item.UseSound = SoundID.Item1;
 			item.value = Item.sellPrice(copper: 20);
-			item.shoot = ProjectileType<IronShurikenProjectile>();
+			item.shoot = ProjectileType<SlimyShurikenProjectile>();
 		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.IronBar, 1);
-			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this, 5);
-			recipe.AddRecipe();
-		}
+		
 
 
 

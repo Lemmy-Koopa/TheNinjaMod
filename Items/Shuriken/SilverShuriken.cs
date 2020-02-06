@@ -16,8 +16,8 @@ namespace TheNinjaMod.Items.Shuriken
 		}
 		public override void SetDefaults()
 		{
-			item.shootSpeed = 11f;
-			item.damage = 6;
+			item.shootSpeed = 10f;
+			item.damage = 9;
 			item.knockBack = 6f;
 			item.useStyle = 1;
 			item.useAnimation = 18;
