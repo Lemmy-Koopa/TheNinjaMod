@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
 
 namespace TheNinjaMod
 {
-    class TheNinjaModGlobalNPC
-    {
-    }
+
+	public class TheNinjaModGlobalNPC : GlobalNPC
+	{
+		public override void NPCLoot(NPC npc)
+		{
+
+			if (npc.type == NPCID.KingSlime)
+			{
+				if (Main.rand.NextBool(8))
+				{
+					Item.NewItem(npc.getRect(), mod.ItemType("SlimyKatana"));
+				}
+			}
+		}
+	}
 }
+
