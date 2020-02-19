@@ -40,6 +40,7 @@ namespace TheNinjaMod.Projectiles.Shuriken
 			{
 				Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
 				Vector2 usePos = projectile.position;
+				Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
 
 				projectile.spriteDirection = projectile.direction = (projectile.velocity.X > 0).ToDirectionInt();
 

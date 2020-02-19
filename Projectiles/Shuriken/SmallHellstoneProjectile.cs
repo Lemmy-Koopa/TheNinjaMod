@@ -26,6 +26,7 @@ namespace TheNinjaMod.Projectiles.Shuriken
 			projectile.penetrate = 3;
 			projectile.aiStyle = 14;
 			projectile.tileCollide = true;
+			projectile.timeLeft = 180;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

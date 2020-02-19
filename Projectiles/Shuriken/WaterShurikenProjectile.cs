@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
@@ -10,27 +9,28 @@ using System.Collections.Generic;
 
 namespace TheNinjaMod.Projectiles.Shuriken
 {
-	public class GoldShurikenProjectile : ModProjectile
+	public class WaterShurikenProjectile : ModProjectile
 	{
+		int Bounces;
+		bool Washed;
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("GoldShurikenProjectile");
+			DisplayName.SetDefault("WaterShurikenProjectile");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 32;
-			projectile.height = 32;
+			projectile.width = 20;
+			projectile.height = 20;
 			projectile.friendly = true;
 			projectile.melee = true;
-			projectile.penetrate = 3;
-			projectile.aiStyle = 2;
+			projectile.penetrate = 4;
+			projectile.aiStyle = 2;			
+			Bounces = 2;
+			Washed = false;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.Midas, 180);
-		}
+
 
 		public override void Kill(int timeLeft)
 		{
@@ -52,24 +52,36 @@ namespace TheNinjaMod.Projectiles.Shuriken
 					dust.noGravity = true;
 				}
 			}
-			if (projectile.owner == Main.myPlayer)
+		}
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			if (Bounces > 0)
 			{
-				
-				int item =
-				Main.rand.NextBool(6)
-					? Item.NewItem(projectile.getRect(), mod.ItemType("GoldShuriken"))
-					: 0;
-
-				// Sync the drop for multiplayer
-				// Note the usage of Terraria.ID.MessageID, please use this!
-				if (Main.netMode == 1 && item >= 0)
+				Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+				Main.PlaySound(SoundID.Item21, projectile.position);
+				if (projectile.velocity.X != oldVelocity.X)
 				{
-					NetMessage.SendData(Terraria.ID.MessageID.SyncItem, -1, -1, null, item, 1f);
+					projectile.velocity.X = -oldVelocity.X;
 				}
+				if (projectile.velocity.Y != oldVelocity.Y)
+				{
+					projectile.velocity.Y = -oldVelocity.Y;
+				}
+				projectile.penetrate -= 1;
+				Bounces -= 1;
+				return false;
 			}
-		}		
+			return base.OnTileCollide(oldVelocity);
+		}
+
+
+
+
+
 	}
+	
 }
+
 
 
 

@@ -92,6 +92,7 @@ namespace TheNinjaMod.Projectiles.Shuriken
 
 				Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
 				Vector2 usePos = projectile.position;
+				Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
 
 				int NUM_DUSTS = 5;
 				for (int i = 5; i < NUM_DUSTS; i++)

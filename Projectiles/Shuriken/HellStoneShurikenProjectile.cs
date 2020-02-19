@@ -28,11 +28,13 @@ namespace TheNinjaMod.Projectiles.Shuriken
 		public override void Kill(int timeLeft)
 		{
 			{
+
 				Vector2 rotVector = (projectile.rotation - MathHelper.ToRadians(90f)).ToRotationVector2(); // rotation vector to use for dust velocity
 				_ = rotVector * 16f;
 
 				Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
 				Vector2 usePos = projectile.position;
+				Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
 
 				int NUM_DUSTS = 5;
 				for (int i = 5; i < NUM_DUSTS; i++)
@@ -64,11 +66,14 @@ namespace TheNinjaMod.Projectiles.Shuriken
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			{
-				target.AddBuff(BuffID.OnFire, 60);
+				target.AddBuff(BuffID.OnFire, 60);				
 				float projectilespeedX = 0f;
 				float projectilespeedY = 3f;
 				float projectileknockBack = 4f;
 				int projectiledamage = 25;
+				float numberProjectiles = 2;
+				float rotation = MathHelper.ToRadians(60);
+				for (int i = 0; i < numberProjectiles; i++)
 				{
 					Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectilespeedX, projectilespeedY, mod.ProjectileType("SmallHellstoneProjectile"), projectiledamage, projectileknockBack, projectile.owner, 0f, 0f);
 				}

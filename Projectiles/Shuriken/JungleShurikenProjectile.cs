@@ -33,6 +33,7 @@ namespace TheNinjaMod.Projectiles.Shuriken
 
 				Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
 				Vector2 usePos = projectile.position;
+				Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
 
 				int NUM_DUSTS = 5;
 				for (int i = 5; i < NUM_DUSTS; i++)
@@ -44,23 +45,7 @@ namespace TheNinjaMod.Projectiles.Shuriken
 					dust.noGravity = true;
 				}
 			}
-			if (projectile.owner == Main.myPlayer)
-			{
-
-				int item =
-				Main.rand.NextBool(6)
-					? Item.NewItem(projectile.getRect(), mod.ItemType("JungleShuriken"))
-					: 0;
-
-				// Sync the drop for multiplayer
-				// Note the usage of Terraria.ID.MessageID, please use this!
-				if (Main.netMode == 1 && item >= 0)
-				{
-					NetMessage.SendData(Terraria.ID.MessageID.SyncItem, -1, -1, null, item, 1f);
-				}
-			}
 		}
-
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			target.AddBuff(BuffID.Poisoned, 180);
