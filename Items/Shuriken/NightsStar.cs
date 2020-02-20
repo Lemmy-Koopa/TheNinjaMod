@@ -39,11 +39,11 @@ namespace TheNinjaMod.Items.Shuriken
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("EyeShuriken"));
-			recipe.AddIngredient(mod.ItemType("HellstoneShuriken"));
+			recipe.AddIngredient(mod.ItemType("HellstoneShuriken", 999));
 			recipe.AddIngredient(mod.ItemType("JungleShuriken"));
 			recipe.AddIngredient(mod.ItemType("WaterShuriken"));
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this, 20);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 
